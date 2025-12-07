@@ -14,7 +14,7 @@ class gcpGateway(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.trigger_message_id = 0  # ID of the message that can be reacted to to add/remove a role.
+        self.trigger_message_id = 1447049952554389626  # ID of the message that can be reacted to to add/remove a role.
         self.emoji_trigger = {
             discord.PartialEmoji(name='U+26CF')
         }
