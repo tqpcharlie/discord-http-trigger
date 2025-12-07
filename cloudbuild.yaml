@@ -9,3 +9,4 @@ steps:
   - --source=.
   - --trigger-http
   - --runtime=python313
+logsBucket: NONE
