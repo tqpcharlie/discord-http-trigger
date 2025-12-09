@@ -14,6 +14,7 @@ class gcpGateway(discord.Client):
     botToken = os.getenv('botToken')
 
     client = discord.Client(intents=intents)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -22,14 +23,15 @@ class gcpGateway(discord.Client):
             discord.PartialEmoji(name='U+26CF')
         }
 
-    def __hash__(self):
-        return self.trigger_message_id
+    def sumMessageID(self):
+        return sum((self.trigger_message_id * 1.0))
 
 
     @client.event
     async def on_raw_reaction_add(payload):
+        targetID = sumMessageID()
         # Make sure that the message the user is reacting to is the one we care about.
-        if payload.message_id == self.trigger_message_id:
+        if payload.message_id == targetID:
             print('yipppppeee!!!')
 
         # Check if we're still in the guild and it's cached. Commented out unless otherwise needed
